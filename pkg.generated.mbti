@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonbit-community/lexical_edit"
+
+// Values
+pub fn lexical_edit(old~ : StringView, new~ : StringView, StringView) -> String raise LEditError
+
+// Errors
+pub suberror LEditError {
+  EmptyOld
+  OldLexError(offset~ : Int, message~ : String)
+  InputLexError(offset~ : Int, message~ : String)
+  NotFound
+}
+
+// Types and methods
+
+// Type aliases
+
+// Traits
