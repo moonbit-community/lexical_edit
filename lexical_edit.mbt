@@ -32,12 +32,12 @@ pub suberror LEditError {
   /// also contains lexical errors. `offset` is the UTF-16 code unit offset of the
   /// diagnostic's start relative to `old`; `message` is the original text of the
   /// first diagnostic returned by the lexer.
-  OldLexError(offset~ : Int, message~ : String)
+  OldLexError(offset~ : Int32, message~ : String)
   /// `old` is lexically valid and nonempty, but the entire `input` contains a
   /// lexical error. `offset` is the UTF-16 code unit offset of the diagnostic's
   /// start relative to `input`; `message` is the original text of the first
   /// diagnostic returned by the lexer. Errors after the match also trigger this case.
-  InputLexError(offset~ : Int, message~ : String)
+  InputLexError(offset~ : Int32, message~ : String)
   /// `old` is lexically valid and nonempty, and `input` is lexically valid, but no
   /// contiguous token sequence matches. This also applies to empty input, input
   /// containing only comments, or input with fewer meaningful tokens than the pattern.
@@ -48,8 +48,8 @@ pub suberror LEditError {
 priv struct EditToken {
   kind : @tokens.TokenKind
   text : StringView
-  start : Int
-  end : Int
+  start : Int32
+  end : Int32
 }
 
 ///|
@@ -58,7 +58,7 @@ fn same_edit_token(left : EditToken, right : EditToken) -> Bool {
 }
 
 ///|
-fn token_prefix_table(pattern : Array[EditToken]) -> Array[Int] {
+fn token_prefix_table(pattern : Array[EditToken]) -> Array[Int32] {
   let prefix = Array::make(pattern.length(), 0)
   let mut matched = 0
   for i in 1..<pattern.length() {

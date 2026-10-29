@@ -346,12 +346,12 @@ test "large repeated prefix succeeds and fails" {
 }
 
 ///|
-fn binary_tokens(length : Int, bits : Int) -> Array[String] {
+fn binary_tokens(length : Int32, bits : Int32) -> Array[String] {
   Array::makei(length, i => if ((bits >> i) & 1) == 0 { "a" } else { "b" })
 }
 
 ///|
-fn naive_first_match(input : Array[String], pattern : Array[String]) -> Int? {
+fn naive_first_match(input : Array[String], pattern : Array[String]) -> Int32? {
   for start in 0..<(input.length() - pattern.length() + 1) {
     let matches = for offset in 0..<pattern.length() {
       if input[start + offset] != pattern[offset] {
