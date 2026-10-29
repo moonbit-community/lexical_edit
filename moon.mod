@@ -26,5 +26,5 @@ preferred_target = "wasm"
 description = ""
 
 import {
-  "moonbitlang/lexer@0.3.16",
+  "moonbitlang/lexer@0.4.4",
 }

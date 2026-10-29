@@ -7,8 +7,8 @@ pub fn lexical_edit(old~ : StringView, new~ : StringView, StringView) -> String 
 // Errors
 pub suberror LEditError {
   EmptyOld
-  OldLexError(offset~ : Int, message~ : String)
-  InputLexError(offset~ : Int, message~ : String)
+  OldLexError(offset~ : Int32, message~ : String)
+  InputLexError(offset~ : Int32, message~ : String)
   NotFound
 }
 
