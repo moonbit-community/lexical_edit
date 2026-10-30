@@ -88,7 +88,7 @@ fn edit_tokens(
     source,
   )
   if result.errors is [(start, _, error), ..] {
-    let message = error.to_string()
+    let message = Show::to_string(error)
     if is_old {
       raise OldLexError(offset=start.cnum, message~)
     } else {
